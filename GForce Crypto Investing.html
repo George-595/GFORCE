@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GForce Crypto Investing</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <style>
+        [v-cloak] { display: none; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div id="app" v-cloak>
+        <nav class="bg-blue-600 text-white p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold">GForce Crypto Investing</a>
+                <ul class="flex space-x-4">
+                    <li><a href="#" @click="currentPage = 'home'" :class="{ 'font-bold': currentPage === 'home' }">Home</a></li>
+                    <li><a href="#" @click="currentPage = 'gfci'" :class="{ 'font-bold': currentPage === 'gfci' }">GFCI Coin</a></li>
+                    <li><a href="#" @click="currentPage = 'system'" :class="{ 'font-bold': currentPage === 'system' }">Investing System</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="container mx-auto mt-8 p-4">
+            <component :is="currentPageComponent"></component>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-4 mt-8">
+            <div class="container mx-auto text-center">
+                &copy; 2023 GForce Crypto Investing. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const HomePage = {
+            template: `
+                <div class="text-center">
+                    <h1 class="text-5xl font-bold mb-6 text-blue-600">GForce Crypto Investing</h1>
+                    <p class="text-2xl mb-8 text-gray-700">Empowering Your Crypto Investment Journey with Advanced AI-Driven Strategies</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h2 class="text-3xl font-bold mb-4 text-blue-500">GFCI Token</h2>
+                            <p class="mb-4">Passive exposure to our advanced crypto strategies. Invest effortlessly with guaranteed liquidity and full ownership.</p>
+                            <ul class="text-left list-disc list-inside mb-4">
+                                <li>Backed by the GForce Investing System</li>
+                                <li>Automatic portfolio optimization</li>
+                                <li>Only 16% maximum drawdown since 2018</li>
+                            </ul>
+                            <button @click="$root.currentPage = 'gfci'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Learn More About GFCI
+                            </button>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h2 class="text-3xl font-bold mb-4 text-green-500">Investing System</h2>
+                            <p class="mb-4">Our cutting-edge system uses AI-driven algorithms to maximize your crypto investments.</p>
+                            <ul class="text-left list-disc list-inside mb-4">
+                                <li>Advanced trend following techniques</li>
+                                <li>Dip Detector for optimal entry/exit points</li>
+                                <li>Asset selection and valuation systems</li>
+                            </ul>
+                            <button @click="$root.currentPage = 'system'" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                Explore Our System
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-100 p-8 rounded-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-gray-800">Why Choose GForce Crypto Investing?</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <span class="text-4xl mb-2 block">📈</span>
+                                <h3 class="text-xl font-bold mb-2">AI-Powered Strategies</h3>
+                                <p>Our advanced algorithms detect market trends and optimize your portfolio in real-time.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <span class="text-4xl mb-2 block">🛡️</span>
+                                <h3 class="text-xl font-bold mb-2">Risk Management</h3>
+                                <p>Minimize drawdowns and protect your gains with our sophisticated risk management techniques.</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <span class="text-4xl mb-2 block">🚀</span>
+                                <h3 class="text-xl font-bold mb-2">Outperform the Market</h3>
+                                <p>Benefit from our asset selection system to consistently beat market benchmarks.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h2 class="text-3xl font-bold mb-6 text-gray-800">Ready to Revolutionize Your Crypto Investments?</h2>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://dhedge.org/vault/0x2af1ace80e797d77c765e76c4e2916cfb1dba9be" target="_blank" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg">
+                                Invest in GFCI Token
+                            </a>
+                            <a href="https://whop.com/gforce-crypto-investing/" target="_blank" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg text-lg">
+                                Get the Investing System
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `
+        };
+
+        const GFCICoinPage = {
+            template: `
+                <div class="relative pb-16"> <!-- Added padding-bottom to accommodate the fixed banner -->
+                    <section id="features">
+                        <h2 class="text-3xl font-bold mb-4">GFCI Token Summary</h2>
+                        <p class="mb-4">The GFCI token is a passive investment vehicle tied to the GForce Crypto Investing system. By holding GFCI, investors automatically benefit from the system's trading outputs without needing to actively manage their investments.</p>
+                        <h3 class="text-2xl font-bold mb-2">Key Features:</h3>
+                        <ul class="list-disc list-inside mb-4">
+                            <li><strong>Passive Exposure:</strong> The token tracks the performance of the investing system, providing hands-off exposure to crypto strategies.</li>
+                            <li><strong>Liquidity:</strong> Investors can sell their tokens at any time, with guaranteed liquidity.</li>
+                            <li><strong>Ownership:</strong> You retain full ownership of the tokens while the system optimises trading outputs in real-time.</li>
+                        </ul>
+                        <p>It's a seamless way to participate in advanced crypto strategies while maintaining control and flexibility.</p>
+                    </section>
+
+                    <section id="marketing" class="mt-8">
+                        <h2 class="text-3xl font-bold mb-4">Why Choose GFCI?</h2>
+                        <p class="mb-4">GFCI is backed by the GForce Investing System, offering you the performance of a traditional hedge fund.</p>
+                        <h3 class="text-2xl font-bold mb-2">Advanced Trading Algorithms</h3>
+                        <p class="mb-4">Our system uses the <strong>𝓓𝓲𝓹 𝓓𝓮𝓽𝓮𝓬𝓽𝓸𝓻</strong> to find local tops and bottoms, ensuring you gain exposure to long-term holdings at the best prices.</p>
+                        <h3 class="text-2xl font-bold mb-2">Relative Strength System (RS)</h3>
+                        <p class="mb-4">The <strong>Relative Strength System (RS)</strong> involves adjusting the balance between large-cap cryptocurrencies using TSG ratio analysis. This medium-term system catches major trends and ignores short-term drawdowns.</p>
+                        <p class="mb-2"><strong>Signal Actions:</strong></p>
+                        <ul class="list-disc list-inside mb-4">
+                            <li><strong>LONG 🟢:</strong> Invest in the asset at the allocated percentage.</li>
+                            <li><strong>CASH 🔴:</strong> Take a cash position; more advanced investors may wish to take a short position.</li>
+                        </ul>
+                        <p class="mb-2"><strong>Important Considerations:</strong></p>
+                        <ul class="list-disc list-inside mb-4">
+                            <li><strong>Market Orders:</strong> Positions are placed immediately using market orders.</li>
+                            <li><strong>No Stop Losses or Take Profits:</strong> Our strategy does not utilize stop losses or take profit orders; it's about market exposure and valuation over the long term.</li>
+                        </ul>
+                        <h3 class="text-2xl font-bold mb-2">Optimized Portfolio Allocation</h3>
+                        <p class="mb-4"><strong>The system compares medium-term trends of crypto ratios to select the ideal portfolio composition, avoiding drawdowns and maximizing performance. With a maximum drawdown of only 16% since 2018, our system ensures you keep your gains.</strong></p>
+                        <h3 class="text-2xl font-bold mb-2">Market Overview and Valuation</h3>
+                        <p class="mb-4">Our system provides a complete market overview and includes a full cycle valuation system to help you understand market conditions and make informed investment decisions.</p>
+                        <h3 class="text-2xl font-bold mb-2">Continuous Improvement</h3>
+                        <p class="mb-4">We are constantly developing refined trend-following systems to improve performance. You will receive updates automatically as the market evolves.</p>
+                        <p class="mb-4">With GFCI, you can invest confidently knowing that your investment is managed by experts.</p>
+                    </section>
+
+                    <!-- New fixed banner -->
+                    <div class="fixed bottom-0 left-0 right-0 bg-blue-600 p-4 text-center">
+                        <a href="https://dhedge.org/vault/0x2af1ace80e797d77c765e76c4e2916cfb1dba9be" target="_blank" class="bg-white text-blue-600 hover:bg-blue-100 font-bold py-2 px-6 rounded-full inline-block text-lg transition duration-300">
+                            Buy GFCI on dHEDGE
+                        </a>
+                    </div>
+                </div>
+            `
+        };
+
+        const SystemPage = {
+            template: `
+                <div class="relative pb-16"> <!-- Added padding-bottom to accommodate the fixed banner -->
+                    <h2 class="text-3xl font-bold mb-4">GForce Crypto Investing System</h2>
+                    <p class="text-xl mb-6">Our advanced investing system uses medium-term trend following techniques to analyze ratios between major cryptocurrencies, determining the strongest performers and market trends.</p>
+                    
+                    <h3 class="text-2xl font-bold mb-4">Key Features:</h3>
+                    <ul class="text-lg space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">📈</span>
+                            <span><strong>Trend Following System:</strong> Automatically detects market uptrends and downtrends, ensuring exposure only to upside movements.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2"></span>
+                            <span><strong>Asset Selection System:</strong> Identifies the strongest performing major cryptocurrencies, allowing your portfolio to outperform the market.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">🔻</span>
+                            <span><strong>Dip Detector:</strong> Custom-built BTC top and bottom detector for optimal entry and exit points.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">📊</span>
+                            <span><strong>Valuation System:</strong> Provides insights on current investment value, helping you make informed decisions.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">📉</span>
+                            <span><strong>Trending or Reverting Analysis:</strong> Determines if the market is in a trend or sideways chop, protecting leveraged spot tokens from volatility decay.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">⏰</span>
+                            <span><strong>Backtest Feature:</strong> Compare the portfolio's performance against standard benchmarks from any date.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">🖥️</span>
+                            <span><strong>Market Overview Table:</strong> Provides a quick glance at general trends of major market segments.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-2">⚡</span>
+                            <span><strong>Volatility Detection:</strong> Warns of expected market volatility to help manage risk.</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- New fixed banner -->
+                    <div class="fixed bottom-0 left-0 right-0 bg-purple-600 p-4 text-center">
+                        <a href="https://whop.com/gforce-crypto-investing/" target="_blank" class="bg-white text-purple-600 hover:bg-purple-100 font-bold py-2 px-6 rounded-full inline-block text-lg transition duration-300">
+                            Get the Investing System
+                        </a>
+                    </div>
+                </div>
+            `
+        };
+
+        new Vue({
+            el: '#app',
+            data: {
+                currentPage: 'home'
+            },
+            computed: {
+                currentPageComponent() {
+                    switch(this.currentPage) {
+                        case 'home':
+                            return HomePage;
+                        case 'gfci':
+                            return GFCICoinPage;
+                        case 'system':
+                            return SystemPage;
+                        default:
+                            return HomePage;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
